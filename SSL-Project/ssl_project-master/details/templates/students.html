@@ -1,0 +1,151 @@
+{% extends "dashboard.html" %}
+
+{% block name %}
+<h2><span style="padding-right: 880px">Students</span>
+  <a href = "{% url 'details:students' %}add" style="">
+    <button type="button" class="btn btn-primary" name="button">Add</button>
+  </a>
+</h2>
+{% endblock %}
+
+
+{% block content %}
+<script>
+    document.getElementById("pub").classList.remove('active');
+    document.getElementById("home").classList.remove('active');
+    document.getElementById("stud").classList.add('active');
+    document.getElementById("proj").classList.remove('active');
+    document.getElementById("teach").classList.remove('active');
+    document.getElementById("recog").classList.remove('active');
+    document.getElementById("gen").classList.remove('active');
+</script>
+<style media="screen">
+  #list{
+    color:rgb(75,70,90);
+  }
+  #icon{
+    font-size: 15px;
+    padding-right: 2px;
+    padding-left: 5px;
+  }
+</style>
+  <div style="padding-left:5%">
+  <h3>Continuing students</h3>
+  {% if btech1.count != 0 %}
+  <h4>B-Tech</h4>
+  <ul>
+    {% for sub in btech1 %}
+      {% if sub.student_status == "Continuing" %}
+        <li>
+          <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+          <a href="{% url 'details:students_edit' pk=sub.pk %}">
+            <i class="material-icons" id="icon">mode_edit</i>Edit
+          </a>
+          <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+            <i class="material-icons" id="icon">delete</i>Delete
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if mtech1.count != 0 %}
+  <h4>M-Tech</h4>
+  <ul>
+    {% for sub in mtech1 %}
+    {% if sub.student_status == 'Continuing' %}
+      <li>
+        <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+        <a href="{% url 'details:students_edit' pk=sub.pk %}">
+          <i class="material-icons" id="icon">mode_edit</i>Edit
+        </a>
+        <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+          <i class="material-icons" id="icon">delete</i>Delete
+        </a>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if phd1.count != 0 %}
+  <h4>PhD</h4>
+  <ul>
+    {% for sub in phd1 %}
+    {% if sub.student_status == 'Continuing' %}
+        <li>
+          <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+          <a href="{% url 'details:students_edit' pk=sub.pk %}">
+            <i class="material-icons" id="icon">mode_edit</i>Edit
+          </a>
+          <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+            <i class="material-icons" id="icon">delete</i>Delete
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+
+  <hr><br>
+  <div style="padding-left:5%">
+  <h3>Completed students</h3>
+  {% if btech2.count != 0  %}
+  <h4>B-Tech</h4>
+  <ul>
+    {% for sub in btech2 %}
+      {% if sub.student_status == 'Completed' %}
+        <li>
+          <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+          <a href="{% url 'details:students_edit' pk=sub.pk %}">
+            <i class="material-icons" id="icon">mode_edit</i>Edit
+          </a>
+          <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+            <i class="material-icons" id="icon">delete</i>Delete
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if mtech2.count != 0 %}
+  <h4>M-Tech</h4>
+  <ul>
+    {% for sub in mtech2 %}
+    {% if sub.student_status == 'Completed' %}
+      <li>
+        <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+        <a href="{% url 'details:students_edit' pk=sub.pk %}">
+          <i class="material-icons" id="icon">mode_edit</i>Edit
+        </a>
+        <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+          <i class="material-icons" id="icon">delete</i>Delete
+        </a>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul><hr>
+  {% endif %}
+  {% if phd2.count != 0 %}
+  <h4>PhD</h4>
+  <ul>
+    {% for sub in phd2 %}
+    {% if sub.student_status == 'Completed' %}
+        <li>
+          <div id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</div>
+          <a href="{% url 'details:students_edit' pk=sub.pk %}">
+            <i class="material-icons" id="icon">mode_edit</i>Edit
+          </a>
+          <a href="{% url 'details:students_delete' pk=sub.pk %}" style="color:red">
+            <i class="material-icons" id="icon">delete</i>Delete
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul><hr>
+  {% endif %}
+</div>
+{% endblock %}

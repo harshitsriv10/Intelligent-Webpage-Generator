@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% load static %}
+<html class="no-js">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Professor List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700|Roboto:300,400' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{% static "homepage/css/animate.css" %}">
+	<link rel="stylesheet" href="{% static "homepage/css/icomoon.css" %}">
+	<link rel="stylesheet" href="{% static "homepage/css/bootstrap.css" %}">
+
+	<link rel="stylesheet" href="{% static "homepage/css/style.css" %}">
+
+
+	<script src="{% static "homepage/js/modernizr-2.6.2.min.js" %}"></script>
+	<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h2")[0];
+				b= li[i].getElementsByTagName("h3")[0];
+				c= li[i].getElementsByTagName("h3")[1];
+				d= li[i].getElementsByTagName("h3")[2];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1 ||b.innerHTML.toUpperCase().indexOf(filter) > -1||c.innerHTML.toUpperCase().indexOf(filter) > -1||d.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+</script>
+
+	</head>
+	<body>
+	<div class="box-wrap">
+		<header role="banner" id="fh5co-header">
+			<div class="container">
+				<nav class="navbar navbar-default">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="fh5co-navbar-brand">
+								<a class="fh5co-logo" href="index.html"><img src="{% static "img/IIT_Guwahati_Logo.svg.png" %}" style="width:100px"></a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<ul class="nav text-center">
+								<li class="active"><a href="#"><span>List of Professors</span></a></li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+
+						</div>
+					</div>
+				</nav>
+		  </div>
+		</header>
+		<!-- END: header -->
+		<section id="intro">
+			<div class="container">
+				<div class="row">
+					<div class="container">
+						<div class="intro animate-box">
+							<input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search"/>
+   									<div class="input-group-btn">
+
+        										<span class="glyphicon glyphicon-search"></span>
+
+   									</div>
+						</div>
+					</div>
+				</div>
+			<div>
+		</section>
+
+
+
+		<section id="product">
+			<div class="container">
+				<div class="row">
+					<div class="post-entry">
+						{% block content %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+		</section>
+
+	<!-- jQuery -->
+	<script src="{% static "homepage/js/jquery.min.js" %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static "homepage/js/jquery.easing.1.3.js" %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static "homepage/js/bootstrap.min.js" %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static "homepage/js/jquery.waypoints.min.js" %}"></script>
+	<!-- Main JS (Do not remove) -->
+	<script src="{% static "homepage/js/main.js" %}"></script>
+
+	</body>
+</html>

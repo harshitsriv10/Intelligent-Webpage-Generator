@@ -1,0 +1,81 @@
+{% extends "dashboard1.html" %}
+{% load social_share %}
+
+{% block notf %}
+      <section class="client no-padding-top">
+       <div class="container-fluid">
+         <div class="row">
+             <div class="col-lg-6">
+                <div class="recent-updates card">
+                  <div class="card-header">
+                    <h3 class="h4">Recent Updates</h3>
+                  </div>
+                  <div class="card-body no-padding">
+                    {% for item in notifs %}
+                    <div class="item d-flex justify-content-between">
+                      <div class="info d-flex">
+                        <div class="icon"><i class="icon-rss-feed"></i></div>
+                        <div class="title">
+                          <h5>
+                            {% if item.type == 1%}
+                              Promotion
+                            {% endif %}
+                            {% if item.type == 2 %}
+                              Paper Accepted
+                            {% endif %}
+                          </h5>
+                          <p>{{ item.message }}</p>
+                          <div class="row">
+                          {% if item.type == 1%}
+                            <a href="{% url "details:about_me_edit2" pk=item.pk %}" style="padding-left:15px">Update</a>
+                            <a href="{% url "details:delete" pk=item.pk %}" style="padding-left:15px">Delete</a>
+                          {% endif %}
+                          {% if item.type == 2 %}
+                            <a href="{% url "details:publication_add2" pk=item.pk %}" style="padding-left:15px">Update</a>
+                            <a href="{% url "details:delete" pk=item.pk %}" style="padding-left:15px">Delete</a>
+                          {% endif %}
+                          {% post_to_facebook object_or_url "Facebook" %}
+                          {% post_to_linkedin item.message object_or_url "LinkedIn" %}
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Item-->
+
+                    <!-- Item        -->
+
+                    <!-- Item-->
+                    <!-- Item-->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                  <div class="client card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-body text-center">
+                      <div class="client-avatar"><img src="{{ profile.profile_pic.url }}" alt="..." class="img-fluid rounded-circle">
+                        <div class="status bg-green"></div>
+                      </div>
+                      <div class="client-title">
+                        <h3>{{user.first_name}} {{user.last_name}}</h3><span>{{profile.designation}}</span>
+                        <a href = "/test/link" style="">
+                          Link
+                        </a>
+                      </div>
+                      <div class="client-info">
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+            </sectiion>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SSL PROJECT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "index/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static "index/vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "index/css/grayscale.min.css" %}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SSL PROJECT</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/users/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/users/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/list">List of Professors</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="masthead">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h1 class="brand-heading">SSL PROJECT</h1>
+              <p class="intro-text">A helpful tool for any faculty member.
+                <br></p>
+            </div>
+            <div class="row"  style="padding-left:330px">
+            <ul class="list-inline banner-social-buttons" style="padding-left:20px">
+              <li class="list-inline-item">
+                <a href="/users/login" class="btn btn-default btn-lg">
+                  <span class="network-name">Login</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="users/signup" class="btn btn-default btn-lg">
+                  <span class="network-name">Sign Up</span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="/list" class="btn btn-default btn-lg">
+                  <span class="network-name">List of Professors</span>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "index/vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "index/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "index/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static "index/js/grayscale.min.js" %}"></script>
+
+  </body>
+
+</html>

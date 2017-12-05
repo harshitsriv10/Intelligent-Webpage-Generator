@@ -1,0 +1,93 @@
+{% extends "profile_base.html" %}
+{% block content %}
+<style media="screen">
+  #list{
+    color:rgb(75,70,90);
+  }
+</style>
+  <h2 style="">Students</h2>
+  <hr>
+  <div style="padding-left:5%">
+  <h3>Continuing students</h3>
+  {% if btech1.count != 0 %}
+  <h4>B-Tech</h4>
+  <ul>
+    {% for sub in btech1 %}
+      {% if sub.student_status == "Continuing" %}
+        <li>
+          <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if mtech1.count != 0 %}
+  <h4>M-Tech</h4>
+  <ul>
+    {% for sub in mtech1 %}
+    {% if sub.student_status == 'Continuing' %}
+      <li>
+        <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if phd1.count != 0 %}
+  <h4>PhD</h4>
+  <ul>
+    {% for sub in phd1 %}
+    {% if sub.student_status == 'Continuing' %}
+        <li>
+          <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+
+  <hr><br>
+  <div style="padding-left:5%">
+  <h3>Completed students</h3>
+  {% if btech2.count != 0  %}
+  <h4>B-Tech</h4>
+  <ul>
+    {% for sub in btech2 %}
+      {% if sub.student_status == 'Completed' %}
+        <li>
+          <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  <hr>
+  {% endif %}
+  {% if mtech2.count != 0 %}
+  <h4>M-Tech</h4>
+  <ul>
+    {% for sub in mtech2 %}
+    {% if sub.student_status == 'Completed' %}
+      <li>
+        <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul><hr>
+  {% endif %}
+  {% if phd2.count != 0 %}
+  <h4>PhD</h4>
+  <ul>
+    {% for sub in phd2 %}
+    {% if sub.student_status == 'Completed' %}
+        <li>
+          <span id="list">{{sub.student_name}} : {{sub.thesis_title}} : {{sub.supervisor}}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul><hr>
+  {% endif %}
+</div>
+{% endblock %}

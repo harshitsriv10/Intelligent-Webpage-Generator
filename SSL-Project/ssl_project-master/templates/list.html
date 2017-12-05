@@ -1,0 +1,26 @@
+{% extends "list_base.html" %}
+{% block content %}
+<ul id="myUL" style="list-style-type: none;">
+  {% for prof in users %}
+  <li>
+  <div class="col-md-12">
+    <div class="post animate-box">
+      <a href="{% url 'profile_page' username=prof.username %}">
+        {% if prof.profile_pic %}
+          <img src="{{prof.profile_pic.url}}">
+        {% else %}
+        <img src="http://taskexchange.cochrane.org/assets/default-profile-bfeeabd02c3b38305b18e4c2345fd54dbbd1a0a7bf403a31f08fca4fada50449.png">
+        {% endif %}
+      </a>
+      <div>
+        <h2><a href="{% url 'profile_page' username=prof.username %}">{{prof.name}}</a></h2>
+        <h3>Designation : {{ prof.designation }}</h3>
+        <h3>Department of {{ prof.department }}</h3>
+        <h3>Office : {{ prof.office }}</h3>
+      </div>
+    </div>
+  </div>
+</li>
+  {% endfor %}
+</ul>
+{% endblock %}

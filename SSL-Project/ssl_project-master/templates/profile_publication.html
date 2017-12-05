@@ -1,0 +1,23 @@
+{% extends "profile_base.html" %}
+{% block content %}
+  <style media="screen">
+  #list{
+    color:rgb(75,70,90);
+
+  }
+  #icon{
+    font-size: 15px;
+    padding-right: 2px;
+    padding-left: 5px;
+  }
+  </style>
+    <h2>Publications</h2>
+    <ul>
+    {% for sub in users %}
+      <li>
+        <span id="list">Title - {{sub.title}}<br>Authors - {{sub.Authors}}<br>Journal - {{sub.journal}} - {{sub.journal_volume}} : Page No - {{sub.page_no}} : Publish Date - {{sub.publish_date}}</span>
+        <hr>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "dashboard.html" %}
+
+{% block name %}
+<h2><span style="padding-right: 790px">Work Experience</span>
+  <a href = "{% url 'details:work' %}add" style="">
+    <button type="button" class="btn btn-primary" name="button">Add</button>
+  </a>
+</h2>
+{% endblock %}
+
+
+{% block content %}
+<style media="screen">
+#list{
+  color:rgb(75,70,90);
+
+}
+#icon{
+  font-size: 15px;
+  padding-right: 2px;
+  padding-left: 5px;
+}
+</style>
+  <ul>
+  {% for sub in users %}
+    <li>
+      <div id="list">{{sub.experience}}<br>
+        {{sub.description}}
+    </div>
+    <a href="{% url 'details:work_edit' pk=sub.pk %}">
+      <i class="material-icons" id="icon">mode_edit</i>Edit
+    </a>
+    <a href="{% url 'details:work_delete' pk=sub.pk %}" style="color: red">
+      <i class="material-icons" id="icon">delete</i>Delete
+    </a>
+      <hr>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

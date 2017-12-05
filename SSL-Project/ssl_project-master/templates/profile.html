@@ -1,0 +1,76 @@
+{% extends "profile_base.html" %}
+
+{% block profile %}
+<section id="product">
+			<div class="container">
+				<div class="row">
+					<div class="post-entry">
+						<div class="col-md-6">
+							<div class="post animate-box">
+                {% if users.profile_pic %}
+                  <a href="#"><img src="{{users.profile_pic.url}}" style="width:200%;height:200px" alt="Product"></a>
+                {% else %}
+                <a href="#"><img src="http://taskexchange.cochrane.org/assets/default-profile-bfeeabd02c3b38305b18e4c2345fd54dbbd1a0a7bf403a31f08fca4fada50449.png" style="width:200%;height:200px"></a>
+                {% endif %}
+								<div style="padding-left:100px">
+                  <h2>{{users.name}}</h2>
+                  <div>designation : {{users.designation}}</div>
+                  <div>department : {{users.department}}</div>
+                  <div>{{users.email}}</div>
+                  <div>phone : {{users.phone}}</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="post animate-box">
+								<div>
+                  <h3>Office </h3>
+                  <div> {{users.office}}</div>
+                  <div>department : {{users.department}}</div>
+                  <div>institute : {{users.institute}}</div>
+                  <div>{{users.email}}</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}
+
+{% block info %}
+<section id="product">
+			<div class="container">
+<h2 style="">Education</h2>
+<hr>
+<div style="padding-left:5%">
+{% for edu in education %}
+      <h4>{{edu.degree}}</h4>
+			<p>
+			    {{edu.university}} : {{edu.year}}
+			</p>
+</ul>
+<hr>
+{% endfor %}
+</div>
+</div>
+</section>
+
+<section id="product">
+			<div class="container">
+<h2 style="">Work experience</h2>
+<hr>
+<div style="padding-left:5%">
+{% for work in work %}
+      <h4>{{work.experience}}</h4>
+			<p>
+			    {{work.description}}
+			</p>
+</ul>
+<hr>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endblock %}

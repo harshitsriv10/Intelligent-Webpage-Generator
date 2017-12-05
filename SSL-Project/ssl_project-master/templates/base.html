@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sslProject</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <nav class="navbar  mynav" role="navigation" id="navbar">
+    			<div class="container">
+            <a class="navbar-brand mynav" href="{% url 'home' %}">IITG</a>
+    					<ul class="nav navbar-nav navbar-right">
+    						{% if user.is_authenticated %}
+                      <li><a href="{% url 'users:logout' %}" class="btn btn-simple">Log out</a></li>
+    						{% else %}
+    						      <li><a href="{% url 'users:login' %}" class="btn btn-simple">Log in</a></li>
+    						      <li><a href="{% url 'users:signup' %}" class="btn btn-simple">Sign up</a></li>
+    						{% endif %}
+    					</ul>
+    			</div>
+    		</nav>
+    </div>
+  </nav>
+    <div class="container">
+          {% block content %}
+          {% endblock %}
+        </div>
+  </body>
+</html>

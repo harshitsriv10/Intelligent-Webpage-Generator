@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %}
+
+{% block name %}
+<h2><span style="padding-right: 850px">Education</span>
+  <a href = "{% url 'details:education' %}add" style="">
+    <button type="button" class="btn btn-primary" name="button">Add</button>
+  </a>
+</h2>
+{% endblock %}
+
+
+{% block content %}
+<style media="screen">
+#list{
+  color:rgb(75,70,90);
+
+}
+#icon{
+  font-size: 15px;
+  padding-right: 2px;
+  padding-left: 5px;
+}
+</style>
+  <ul>
+  {% for sub in users %}
+    <li>
+      <div id="list">
+        <h3>{{sub.degree}}</h3>
+        {{sub.university}} - {{sub.year}}
+    </div>
+    <a href="{% url 'details:education_edit' pk=sub.pk %}">
+      <i class="material-icons" id="icon">mode_edit</i>Edit
+    </a>
+    <a href="{% url 'details:education_delete' pk=sub.pk %}" style="color: red">
+      <i class="material-icons" id="icon">delete</i>Delete
+    </a>
+      <hr>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

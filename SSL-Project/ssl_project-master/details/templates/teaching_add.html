@@ -1,0 +1,19 @@
+{% extends "dashboard.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+<script>
+    document.getElementById("pub").classList.remove('active');
+    document.getElementById("home").classList.remove('active');
+    document.getElementById("stud").classList.remove('active');
+    document.getElementById("proj").classList.remove('active');
+    document.getElementById("teach").classList.add('active');
+    document.getElementById("recog").classList.remove('active');
+    document.getElementById("gen").classList.remove('active');
+</script>
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input type="submit" value="Add" class="btn btn-default">
+</form>
+{% endblock %}

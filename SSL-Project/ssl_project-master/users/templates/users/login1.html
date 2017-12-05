@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Credit Login / Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static "login/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static "login/css/popuo-box.css" %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static "login/css/style.css" %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<style>
+	#captcha{
+		padding-left: 15%;
+	}
+	#error{
+		padding-left: 35.5%;
+		color: red;
+	}
+</style>
+
+</head>
+<body>
+<h1>Login</h1>
+<div class="main-agileits">
+<!--form-stars-here-->
+		<div class="form-w3-agile">
+			<h2>login page</h2>
+			<form method="post">
+				{% csrf_token %}
+				<div class="form-sub-w3">
+					<input type="text" name="username" placeholder="username " required="" />
+				<div class="icon-w3">
+					<i class="fa fa-user" aria-hidden="true"></i>
+				</div>
+				</div>
+				<div class="form-sub-w3">
+					<input type="password" name="password" placeholder="password" required="" />
+				<div class="icon-w3">
+					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+				</div>
+				</div>
+				<script src='https://www.google.com/recaptcha/api.js'></script>
+	      <div class="g-recaptcha" data-sitekey="6LdCKTgUAAAAADFtKpl-lnot6da0RdnNkFhOivhp" id="captcha"></div>
+				<br>
+				{% if error_message %}
+		      <p id="error"><strong>{{ error_message }}</strong></p>
+		    {% endif %}
+				<div class="submit-w3l">
+					<input type="submit" value="Login">
+				</div>
+			</form>
+		</div>
+<!--//form-ends-here-->
+</div>
+</body>
+</html>
+{% endblock %}

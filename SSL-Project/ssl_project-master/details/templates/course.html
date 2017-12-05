@@ -1,0 +1,47 @@
+{% extends "dashboard.html" %}
+
+{% block name %}
+<h2><span style="padding-right: 867px">Teachings</span>
+  <a href = "{% url 'details:course' pk=pk %}add" style="">
+    <button type="button" class="btn btn-primary" name="button">Add</button>
+  </a>
+</h2>
+{% endblock %}
+
+
+{% block content %}
+<script>
+    document.getElementById("pub").classList.remove('active');
+    document.getElementById("home").classList.remove('active');
+    document.getElementById("stud").classList.remove('active');
+    document.getElementById("proj").classList.remove('active');
+    document.getElementById("teach").classList.add('active');
+    document.getElementById("recog").classList.remove('active');
+    document.getElementById("gen").classList.remove('active');
+</script>
+  <style media="screen">
+    #list{
+      color:rgb(75,70,90);
+
+    }
+    #icon{
+      font-size: 15px;
+      padding-right: 2px;
+      padding-left: 5px;
+    }
+  </style>
+    <ul>
+    {% for sub in users %}
+      <li>
+        <span id="list">{{sub.messages}}</span>
+      </li>
+      <a href="{% url 'details:teaching_edit' pk=sub.pk %}">
+      <i class="material-icons" id="icon">mode_edit</i>Edit
+      </a>
+      <a href="{% url 'details:teaching_delete' pk=sub.pk %} " style="color:red">
+        <i class="material-icons" id="icon">delete</i>Delete
+      </a>
+      <hr>
+    {% endfor %}
+  </ul>
+{% endblock %}

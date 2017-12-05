@@ -1,0 +1,32 @@
+{% extends "profile_base.html" %}
+{% block content %}
+<style media="screen">
+#list{
+  color:rgb(75,70,90);
+
+}
+#icon{
+  font-size: 15px;
+  padding-right: 2px;
+  padding-left: 5px;
+}
+</style>
+  <h2>Projects</h2>
+  <ul>
+  {% for sub in users %}
+    <li>
+      <div id="list">{{sub.project_title}} : {{sub.project_description}}<br>
+      {% if sub.pi != '' %}
+        PI -  : {{sub.pi}}<br>
+      {% endif %}
+      {% if sub.co_pi != '' %}
+        CO PI - {{sub.co_pi}}<br>
+      {% endif %}
+        Funding Agency : {{ sub.funding_agency }}<br>
+        {{ sub.start_year }} - {{ sub.end_year }}
+    </div>
+      <hr>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

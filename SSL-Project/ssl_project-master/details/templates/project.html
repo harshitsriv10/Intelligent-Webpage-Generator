@@ -1,0 +1,56 @@
+{% extends "dashboard.html" %}
+
+{% block name %}
+<h2><span style="padding-right: 890px">Projects</span>
+  <a href = "{% url 'details:project' %}add" style="">
+    <button type="button" class="btn btn-primary" name="button">Add</button>
+  </a>
+</h2>
+{% endblock %}
+
+
+{% block content %}
+<script>
+    document.getElementById("pub").classList.remove('active');
+    document.getElementById("home").classList.remove('active');
+    document.getElementById("stud").classList.remove('active');
+    document.getElementById("proj").classList.add('active');
+    document.getElementById("teach").classList.remove('active');
+    document.getElementById("recog").classList.remove('active');
+    document.getElementById("gen").classList.remove('active');
+</script>
+<style media="screen">
+#list{
+  color:rgb(75,70,90);
+
+}
+#icon{
+  font-size: 15px;
+  padding-right: 2px;
+  padding-left: 5px;
+}
+</style>
+  <ul>
+  {% for sub in users %}
+    <li>
+      <div id="list">{{sub.project_title}} : {{sub.project_description}}<br>
+      {% if sub.pi != '' %}
+        PI -  : {{sub.pi}}<br>
+      {% endif %}
+      {% if sub.co_pi != '' %}
+        CO PI - {{sub.co_pi}}<br>
+      {% endif %}
+        Funding Agency : {{ sub.funding_agency }}<br>
+        {{ sub.start_year }} - {{ sub.end_year }}
+    </div>
+    <a href="{% url 'details:project_edit' pk=sub.pk %}">
+      <i class="material-icons" id="icon">mode_edit</i>Edit
+    </a>
+    <a href="{% url 'details:project_delete' pk=sub.pk %}" style="color: red">
+      <i class="material-icons" id="icon">delete</i>Delete
+    </a>
+      <hr>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

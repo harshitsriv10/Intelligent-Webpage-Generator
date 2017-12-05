@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="{% static "css/fontastic.css" %}">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static "css/style.default.css" %}" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+
+  </head>
+
+  <body>
+    <div class="page login-page">
+      <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow" style="width:70%;margin-left:150px;border-radius:8px">
+          <div class="row">
+            <!-- Logo & Information Panel-->
+            <div class="col-lg-12">
+              <div class="info d-flex align-items-center">
+                <div class="content test" style="color:rgb(64, 57, 132)">
+                  <a href="#" style="color:rgb(64, 57, 132);text-decoration:none"><h1 align="center" style="margin-left:200px">Login</h1></a>
+                  <br>
+                  <br>
+                  <a href="#" style="color:rgb(64, 57, 132);text-decoration:none"><h1 align="center" style="margin-left:200px">Sign Up</h1></a>
+                  <br>
+                  <br>
+                  <a href="#"style="color:rgb(64, 57, 132);text-decoration:none"><h1 align="center" style="margin-left:200px">List of Professors</h1></a>
+                </div>
+              </div>
+            </div>
+            <!-- Form Panel    -->
+            <!-- <div class="col-lg-6 bg-white">
+              <div class="form d-flex align-items-center">
+                <div class="content">
+                    {% csrf_token %}
+                  <form id="login-form" method="post">
+                      {% csrf_token %}
+                    <div class="form-group">
+                        {% csrf_token %}
+                      <input id="login-username" type="text" name="username" placeholder="username " required="" class="input-material">
+                    </div>
+                    <div class="form-group">
+                        {% csrf_token %}
+                      <input id="login-password" type="password" name="password" placeholder="password" required="" class="input-material">
+                      <br><br>
+                      <script src='https://www.google.com/recaptcha/api.js'></script>
+              	      <div class="g-recaptcha" data-sitekey="6LdCKTgUAAAAADFtKpl-lnot6da0RdnNkFhOivhp" id="captcha"></div>
+                      <br>
+              				{% if error_message %}
+              		      <div style="color: red">{{ error_message }}</div>
+                        <br>
+              		    {% endif %}
+              				<div>
+              					<input type="submit" class="btn btn-primary" value="Login">
+              				</div>
+                      <br>
+                  </form>
+                  <small>Do not have an account? </small><a href="/users/signup" class="signup">Signup</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Javascript files-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{% static "vendor/popper.js/umd/popper.min.js" %}"> </script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "vendor/jquery.cookie/jquery.cookie.js" %}"> </script>
+    <script src="{% static "vendor/jquery-validation/jquery.validate.min.js" %}"></script>
+    <script src="{% static "js/front.js" %}"></script>
+  </body>
+</html>
